@@ -1,15 +1,23 @@
 ﻿using FxTemplateAzureSQL.Interfaces;
-using System.Net.Http.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace FxTemplateAzureSQL.Services
 {
-    public class HttpService(HttpClient client) : IHttpService
+    public class HttpService : IHttpService
     {
-        private readonly HttpClient _client = client;
+        private readonly HttpClient _httpClient;
+        public readonly IConfiguration _configuration;
 
-        public async Task<HttpResponseMessage> PostAsync(string url, object request)
+        public HttpService(IHttpClientFactory clientFactory , IConfiguration configuration) {
+            _httpClient = clientFactory.CreateClient("ClienteHttp");
+            _configuration = configuration;
+        } 
+
+        
+        public async Task<string> GetDataAsync()
         {
-            return await _client.PostAsJsonAsync(new Uri(url), request);
+            var response = await _httpClient.GetStringAsync(_configuration["HttpClientSettings:BaseAddress"]);
+            return response;
         }
     }
 }

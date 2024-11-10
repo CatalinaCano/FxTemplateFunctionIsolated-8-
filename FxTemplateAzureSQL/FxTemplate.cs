@@ -1,32 +1,35 @@
 using FluentValidation;
-
+using FxTemplateAzureSQL.Interfaces;
 using FxTemplateAzureSQL.Models;
 using FxTemplateAzureSQL.Models.Input;
 using FxTemplateAzureSQL.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System.Net;
+using System.Runtime.InteropServices;
 using AuthorizationLevel = Microsoft.Azure.Functions.Worker.AuthorizationLevel;
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace FxTemplateAzureSQL
 {
     public class FxTemplate
     {
-        private readonly ILogger<FxTemplate> _logger;
+       
         private readonly IValidator<DemoInput> _demoValidator;
+        private readonly IHttpService _httpService;
+        private readonly ILogger<FxTemplate> _logger;
 
-        public FxTemplate(IValidator<DemoInput> demoValidator, ILogger<FxTemplate> logger)
+        public FxTemplate(IValidator<DemoInput> demoValidator, IHttpService httpService, ILogger<FxTemplate> logger)
         {
             _demoValidator = demoValidator;
+            _httpService = httpService; 
             _logger = logger;
         }
 
@@ -63,25 +66,34 @@ namespace FxTemplateAzureSQL
             {
                 _logger.LogInformation("C# HTTP trigger function processed a request.");
                 var json = await req.ReadAsStringAsync();
-                DemoInput request = JsonConvert.DeserializeObject<DemoInput>(json);
 
-                var validationResult = _demoValidator.Validate(request);
-                if (validationResult.IsValid)
+                if(json is not null)
                 {
-                    //Implementar logica de la funcion
-                    // await _unitOfWork.DemoRepository.CreateDemo(request);
+                    DemoInput? request = JsonConvert.DeserializeObject<DemoInput>(json);
+                    var validationResult = _demoValidator.Validate(request);
+                    if (validationResult.IsValid)
+                    {
+                        //Implementar logica de la funcion
+                        // await _unitOfWork.DemoRepository.CreateDemo(request);
+                        object data = await _httpService.GetDataAsync();
+                        return HttpResponseHelper.SuccessfulResponse(data);
+                    }
+                    else
+                    {
+                        string allErrors = string.Join(Environment.NewLine, validationResult.Errors.Select(e => e.ErrorMessage));
+                        return HttpResponseHelper.BadRequest(null, allErrors);
+                    }
+                }
 
-                    return HttpResponseHelper.SuccessfullOperation(SupportedResponses.Registro_creado_exitosamente);
-                }
-                else
-                {
-                    string allErrors = string.Join(Environment.NewLine, validationResult.Errors.Select(e => e.ErrorMessage));
-                    return HttpResponseHelper.BadRequest(null, allErrors);
-                }
+                return HttpResponseHelper.BadRequest(null, "No fue enviado el cuerpo de la peticion.");
+
+
+
+
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message.ToString());
+                _logger.LogError(ex,"Ocurrio un error");
                 return HttpResponseHelper.InternalServerError(ex.Message);
             }
         }

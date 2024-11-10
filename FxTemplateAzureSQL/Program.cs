@@ -1,13 +1,17 @@
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using FluentValidation;
+using FxTemplateAzureSQL.Interfaces;
 using FxTemplateAzureSQL.Models.Input;
+using FxTemplateAzureSQL.Services;
 using FxTemplateAzureSQL.Validator;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Net.Http.Headers;
+using System.Text;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -47,19 +51,22 @@ var host = new HostBuilder()
 
         //SI SU SOLUCION NO USA UN CLIENTE HTTP POR FAVOR ELIMINE TODA LA REGION HttpClient
 
-        /*#region HttpClient
+        #region HttpClient
 
-        services.AddHttpClient();
-        services.AddHttpClient(client =>
-        {
-            client.DefaultRequestHeaders.Add("Accept", "application/json"); // Configura encabezados predeterminados si es necesario
 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-            "Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes($"{user}:{password}"))); //Usar en el caso de que el Bearer token sea el mismo para todos los http request
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));//Cambie de acuerdo a su necesitadad
+        
+
+        // Configura HttpClient con la URL base y el encabezado Accept para application/json
+        services.AddHttpClient("ClienteHttp", client =>
+        {            
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            client.Timeout = TimeSpan.FromSeconds(30);
         });
 
-        #endregion HttpClient*/
+        // Registro de servicios dependientes de HttpClient
+        services.AddTransient<IHttpService, HttpService>();
+
+        #endregion HttpClient
 
         #region Mapper
 

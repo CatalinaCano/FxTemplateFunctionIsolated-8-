@@ -2,6 +2,7 @@
 {
     public interface IHttpService
     {
-        public Task<HttpResponseMessage> PostAsync(string url, object request);
+        public Task<string> GetDataAsync();
+     
     }
 }
