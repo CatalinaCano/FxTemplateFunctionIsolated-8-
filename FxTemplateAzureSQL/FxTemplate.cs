@@ -19,19 +19,12 @@ using AuthorizationLevel = Microsoft.Azure.Functions.Worker.AuthorizationLevel;
 
 namespace FxTemplateAzureSQL
 {
-    public class FxTemplate
+    public class FxTemplate(IValidator<DemoInput> demoValidator, IHttpService httpService, ILogger<FxTemplate> logger)
     {
        
-        private readonly IValidator<DemoInput> _demoValidator;
-        private readonly IHttpService _httpService;
-        private readonly ILogger<FxTemplate> _logger;
-
-        public FxTemplate(IValidator<DemoInput> demoValidator, IHttpService httpService, ILogger<FxTemplate> logger)
-        {
-            _demoValidator = demoValidator;
-            _httpService = httpService; 
-            _logger = logger;
-        }
+        private readonly IValidator<DemoInput> _demoValidator = demoValidator;
+        private readonly IHttpService _httpService = httpService;
+        private readonly ILogger<FxTemplate> _logger = logger;
 
         //RECUERDE QUE
         //1. El nombre de su funcionalidad no puede superar 28 caracteres

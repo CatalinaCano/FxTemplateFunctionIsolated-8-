@@ -1,12 +1,14 @@
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using FluentValidation;
+using FxTemplateAzureSQL.DataContext;
 using FxTemplateAzureSQL.Interfaces;
 using FxTemplateAzureSQL.Models.Input;
 using FxTemplateAzureSQL.Services;
 using FxTemplateAzureSQL.Validator;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
+using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -46,7 +48,17 @@ var host = new HostBuilder()
     })
     .ConfigureServices((context, services) =>
     {
-        services.AddSingleton<IConfiguration>(context.Configuration);
+        
+        services.AddSingleton(context.Configuration);
+        services.AddSingleton<SecretClient>();
+        services.AddSingleton<DapperContext>();
+        services.AddAutoMapper(typeof(Program));
+        services.AddMvcCore()
+                      .AddNewtonsoftJson(jsonOptions =>
+                      {
+                          jsonOptions.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+
+                      }); 
 
 
         //SI SU SOLUCION NO USA UN CLIENTE HTTP POR FAVOR ELIMINE TODA LA REGION HttpClient
@@ -54,7 +66,7 @@ var host = new HostBuilder()
         #region HttpClient
 
 
-        
+
 
         // Configura HttpClient con la URL base y el encabezado Accept para application/json
         services.AddHttpClient("ClienteHttp", client =>
@@ -70,7 +82,7 @@ var host = new HostBuilder()
 
         #region Mapper
 
-        services.AddAutoMapper(typeof(Program));
+     
 
         #endregion Mapper
 

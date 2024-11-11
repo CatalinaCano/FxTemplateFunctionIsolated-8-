@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{96E5C9E0-2594-43CA-AA1F-052D21732078}|FxTemplateAzureSQL\\FxTemplateAzureSQL.csproj|c:\\users\\gimena\\downloads\\fxtemplatefunctionisolated-8-\\fxtemplateazuresql\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{96E5C9E0-2594-43CA-AA1F-052D21732078}|FxTemplateAzureSQL\\FxTemplateAzureSQL.csproj|solutionrelative:fxtemplateazuresql\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{96E5C9E0-2594-43CA-AA1F-052D21732078}|FxTemplateAzureSQL\\FxTemplateAzureSQL.csproj|c:\\users\\gimena\\downloads\\fxtemplatefunctionisolated-8-\\fxtemplateazuresql\\fxtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96E5C9E0-2594-43CA-AA1F-052D21732078}|FxTemplateAzureSQL\\FxTemplateAzureSQL.csproj|solutionrelative:fxtemplateazuresql\\fxtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,11 +34,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "local.settings.json",
+              "DocumentMoniker": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\local.settings.json",
+              "RelativeDocumentMoniker": "FxTemplateAzureSQL\\local.settings.json",
+              "ToolTip": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\local.settings.json",
+              "RelativeToolTip": "FxTemplateAzureSQL\\local.settings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-11T16:41:24.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "DemoInputValidator.cs",
               "DocumentMoniker": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\Validator\\DemoInputValidator.cs",
               "RelativeDocumentMoniker": "FxTemplateAzureSQL\\Validator\\DemoInputValidator.cs",
@@ -42,12 +59,11 @@
               "RelativeToolTip": "FxTemplateAzureSQL\\Validator\\DemoInputValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T16:27:10.465Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T16:27:10.465Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "HttpService.cs",
               "DocumentMoniker": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\Services\\HttpService.cs",
               "RelativeDocumentMoniker": "FxTemplateAzureSQL\\Services\\HttpService.cs",
@@ -55,12 +71,11 @@
               "RelativeToolTip": "FxTemplateAzureSQL\\Services\\HttpService.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T16:18:38.788Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T16:18:38.788Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IHttpService.cs",
               "DocumentMoniker": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\Interfaces\\IHttpService.cs",
               "RelativeDocumentMoniker": "FxTemplateAzureSQL\\Interfaces\\IHttpService.cs",
@@ -68,12 +83,11 @@
               "RelativeToolTip": "FxTemplateAzureSQL\\Interfaces\\IHttpService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T16:17:14.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T16:17:14.466Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\Program.cs",
               "RelativeDocumentMoniker": "FxTemplateAzureSQL\\Program.cs",
@@ -81,18 +95,17 @@
               "RelativeToolTip": "FxTemplateAzureSQL\\Program.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAAADgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T16:13:39.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T16:13:39.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FxTemplate.cs",
               "DocumentMoniker": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\FxTemplate.cs",
               "RelativeDocumentMoniker": "FxTemplateAzureSQL\\FxTemplate.cs",
               "ToolTip": "C:\\Users\\Gimena\\Downloads\\FxTemplateFunctionIsolated-8-\\FxTemplateAzureSQL\\FxTemplate.cs",
               "RelativeToolTip": "FxTemplateAzureSQL\\FxTemplate.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAE8AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T01:53:40.636Z",
               "EditorCaption": ""

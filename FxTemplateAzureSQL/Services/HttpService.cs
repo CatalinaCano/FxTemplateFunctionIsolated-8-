@@ -3,17 +3,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace FxTemplateAzureSQL.Services
 {
-    public class HttpService : IHttpService
+    public class HttpService(IHttpClientFactory clientFactory, IConfiguration configuration) : IHttpService
     {
-        private readonly HttpClient _httpClient;
-        public readonly IConfiguration _configuration;
+        private readonly HttpClient _httpClient = clientFactory.CreateClient("ClienteHttp");
+        public readonly IConfiguration _configuration = configuration;
 
-        public HttpService(IHttpClientFactory clientFactory , IConfiguration configuration) {
-            _httpClient = clientFactory.CreateClient("ClienteHttp");
-            _configuration = configuration;
-        } 
-
-        
         public async Task<string> GetDataAsync()
         {
             var response = await _httpClient.GetStringAsync(_configuration["HttpClientSettings:BaseAddress"]);
