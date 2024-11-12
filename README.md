@@ -46,12 +46,16 @@ RECUERDE QUE LAS OPCIONES **Importar la plantilla automáticamente en Visual Stu
 ![Template5.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template5.png)
 
 > **NOTA IMPORTANTE:** En el caso de que en el pasado haya generado una plantilla con el mismo nombre es importante que elimine los archivos .zip que se generan en las siguientes rutas y luego se proceda a generar nuevamente la plantilla
+## Evaluación de Calidad del Código
 
-# # Requerimientos Técnicos
+![EvaluacionCalidad.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/EvaluacionCalidad.png)
+
+
+## Requerimientos Técnicos
 
 Todas las funciones serán desarrolladas utilizando .NET 8.0, y bajo los estandares definidos en la Wiki del proyecto.
 
-##IDE
+## IDE
 
 - [Visual Studio 2022](https://visualstudio.microsoft.com/es/vs/)
   ##GESTORES DE BASES DE DATOS
@@ -63,7 +67,7 @@ Todas las funciones serán desarrolladas utilizando .NET 8.0, y bajo los estanda
   ##Herramienta para limpieza de Código
 - [CodeMaid](https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.CodeMaid)
 
-##Otras Herramientas
+## Otras Herramientas
 
 - [Postman](https://www.postman.com/downloads/)
 - [SoapUI](https://www.soapui.org/downloads/soapui/)
