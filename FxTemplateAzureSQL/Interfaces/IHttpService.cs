@@ -1,8 +1,10 @@
-﻿namespace FxTemplateAzureSQL.Interfaces
+﻿using FxTemplateAzureSQL.Models.ResponseAPI;
+
+namespace FxTemplateAzureSQL.Interfaces
 {
     public interface IHttpService
     {
-        public Task<string> GetDataAsync();
+        public Task<ResponseApi> GetDataAsync(int index);
      
     }
 }

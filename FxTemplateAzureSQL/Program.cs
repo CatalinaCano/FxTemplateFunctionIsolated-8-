@@ -3,22 +3,22 @@ using Azure.Security.KeyVault.Secrets;
 using FluentValidation;
 using FxTemplateAzureSQL.DataContext;
 using FxTemplateAzureSQL.Interfaces;
+using FxTemplateAzureSQL.Interfaces.RepositoryPattern;
 using FxTemplateAzureSQL.Models.Input;
+using FxTemplateAzureSQL.Repositories;
 using FxTemplateAzureSQL.Services;
 using FxTemplateAzureSQL.Validator;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
-using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Net.Http.Headers;
-using System.Text;
+using Newtonsoft.Json;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
     .ConfigureAppConfiguration((context, config) =>
     {
+
+
         // Cargar la configuración desde local.settings.json
         var env = context.HostingEnvironment.EnvironmentName;
         config.SetBasePath(Directory.GetCurrentDirectory())
@@ -47,27 +47,21 @@ var host = new HostBuilder()
         }
     })
     .ConfigureServices((context, services) =>
-    {
-        
+    {        
         services.AddSingleton(context.Configuration);
         services.AddSingleton<SecretClient>();
         services.AddSingleton<DapperContext>();
         services.AddAutoMapper(typeof(Program));
         services.AddMvcCore()
-                      .AddNewtonsoftJson(jsonOptions =>
-                      {
-                          jsonOptions.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                .AddNewtonsoftJson(jsonOptions =>
+                {
+                    jsonOptions.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
 
-                      }); 
+                }); 
 
 
         //SI SU SOLUCION NO USA UN CLIENTE HTTP POR FAVOR ELIMINE TODA LA REGION HttpClient
-
         #region HttpClient
-
-
-
-
         // Configura HttpClient con la URL base y el encabezado Accept para application/json
         services.AddHttpClient("ClienteHttp", client =>
         {            
@@ -77,29 +71,19 @@ var host = new HostBuilder()
 
         // Registro de servicios dependientes de HttpClient
         services.AddTransient<IHttpService, HttpService>();
-
         #endregion HttpClient
-
-        #region Mapper
-
-     
-
-        #endregion Mapper
-
+        
         // Registrar los repositorios (si tienes repositorios como IUnitOfWork, DemoService, etc.)
-
         #region Repositorios
-
         // Ejemplo de registro de repositorio o servicio con diferentes tipos de ciclo de vida
-        // services.AddScoped<IUnitOfWork, UnitOfWork>(); // Usando Scoped para repositorios o servicios relacionados con la DB
+         services.AddTransient<IUnitOfWork, UnitOfWork>(); // Usando Scoped para repositorios o servicios relacionados con la DB
+         services.AddTransient<IDemoRepository, DemoRepository>();
 
         #endregion Repositorios
 
         #region Validator
-
         //Ejemplo de inyeccion de dependencias para las validaciones, dada nuevo validador que exista debera registrarlo aqui
         services.AddScoped<IValidator<DemoInput>, DemoInputValidator>();
-
         #endregion Validator
     })
     .Build();

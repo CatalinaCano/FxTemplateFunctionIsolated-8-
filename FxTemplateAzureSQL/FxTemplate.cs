@@ -1,7 +1,10 @@
+using Azure;
 using FluentValidation;
 using FxTemplateAzureSQL.Interfaces;
+using FxTemplateAzureSQL.Interfaces.RepositoryPattern;
 using FxTemplateAzureSQL.Models;
 using FxTemplateAzureSQL.Models.Input;
+using FxTemplateAzureSQL.Models.ResponseAPI;
 using FxTemplateAzureSQL.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,13 +22,13 @@ using AuthorizationLevel = Microsoft.Azure.Functions.Worker.AuthorizationLevel;
 
 namespace FxTemplateAzureSQL
 {
-    public class FxTemplate(IValidator<DemoInput> demoValidator, IHttpService httpService, ILogger<FxTemplate> logger)
+    public class FxTemplate(IValidator<DemoInput> demoValidator, IHttpService httpService, ILogger<FxTemplate> logger, IUnitOfWork unitOfWork)
     {
        
         private readonly IValidator<DemoInput> _demoValidator = demoValidator;
         private readonly IHttpService _httpService = httpService;
         private readonly ILogger<FxTemplate> _logger = logger;
-
+        private readonly IUnitOfWork _unitOfWork = unitOfWork;
         //RECUERDE QUE
         //1. El nombre de su funcionalidad no puede superar 28 caracteres
         //2. El decorador de open api debe ser unico por cada funcion
@@ -65,11 +68,11 @@ namespace FxTemplateAzureSQL
                     DemoInput? request = JsonConvert.DeserializeObject<DemoInput>(json);
                     var validationResult = _demoValidator.Validate(request);
                     if (validationResult.IsValid)
-                    {
-                        //Implementar logica de la funcion
-                        // await _unitOfWork.DemoRepository.CreateDemo(request);
-                        object data = await _httpService.GetDataAsync();
-                        return HttpResponseHelper.SuccessfulResponse(data);
+                    {                  
+                        
+                        ResponseApi data = await _httpService.GetDataAsync(request.Edad);
+                        await _unitOfWork.DemoRepository.InsertData(data, request.Email);
+                        return HttpResponseHelper.SuccessfullOperation(SupportedResponses.Registro_creado_exitosamente);
                     }
                     else
                     {

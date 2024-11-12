@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FxTemplateAzureSQL.Models.Entities
 {
-    [Table("NombreTablaEnBD")]
+    [Table("Usuarios")] // [Table("NombreTablaEnBD")]
     public class Demo
     {
         //La estructura de esta clase se basa en todos los campos de la tabla de la base de datos sobre la cual
@@ -12,10 +12,12 @@ namespace FxTemplateAzureSQL.Models.Entities
         //Si no necesita todos los campos de la base de datos use un Dto.
 
         [Key] //Establece este aatributo como la llave primaria
-        public int Cantidad { get; set; }
+        public required string Nombre { get; set; }
 
-        public string Moneda { get; set; }
+        public required string Apellido { get; set; }
 
-        public string CorreoElectronico { get; set; }
+        public required string Edad { get; set; }
+
+        public required string Correo { get; set; }
     }
 }

@@ -14,9 +14,10 @@ namespace FxTemplateAzureSQL.OpenApi
                     "ParametersExample",
                     new DemoInput()
                     {
-                        Amount = 100,
-                        Currency = "COP",
-                        Email = "test@test.com"
+                        Nombre = "User",
+                        Apellido = "1",
+                        Edad = 10,
+                        Email ="user@test.com"
                     },
                     namingStrategy
                 ));
