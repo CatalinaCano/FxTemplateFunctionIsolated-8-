@@ -1,6 +1,5 @@
 ## <⚡> PLANTILLA PARA FUNCIONES HTTP
 
-
 ![nuget1.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/8.jpeg?raw=true)
 
 # Antes de Empezar
@@ -30,10 +29,10 @@ git clone https://EpadGroup@dev.azure.com/EpadGroup/Epad_Repositorios/_git/BackE
 #Plantilla 1
 
 | **Nombre de la Solución:**       | ![Azure-SQL-Database.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Azure-SQL-Database.png) FxTemplateAzureSQL\. |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Nombre de la plantilla:**      | EPAD-PlantillaSQL\.                                                                                                                      |
-| **Descripción de la plantilla:** | Plantilla que implementa los patrones repository y unit of work para conectarse a un motor relacional\.                                  |
-| **Icono:**                       | /Resources/img/Azure-SQL-Database.png                                                                                                    |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nombre de la plantilla:**      | EPAD-PlantillaSQL\.                                                                                                                                      |
+| **Descripción de la plantilla:** | Plantilla que implementa los patrones repository y unit of work para conectarse a un motor relacional\.                                                  |
+| **Icono:**                       | /Resources/img/Azure-SQL-Database.png                                                                                                                    |
 
 RECUERDE QUE LAS OPCIONES **Importar la plantilla automáticamente en Visual Studio** y **Mostrar una ventana de explorador en la carpeta de archivos de salida** DEBEN ESTAR MARCADAS.
 ![Template3.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template3.png)
@@ -47,9 +46,6 @@ RECUERDE QUE LAS OPCIONES **Importar la plantilla automáticamente en Visual Stu
 ![Template5.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template5.png)
 
 > **NOTA IMPORTANTE:** En el caso de que en el pasado haya generado una plantilla con el mismo nombre es importante que elimine los archivos .zip que se generan en las siguientes rutas y luego se proceda a generar nuevamente la plantilla
-
-
-
 
 # # Requerimientos Técnicos
 

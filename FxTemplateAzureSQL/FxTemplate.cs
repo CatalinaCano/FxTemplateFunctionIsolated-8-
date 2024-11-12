@@ -1,4 +1,3 @@
-using Azure;
 using FluentValidation;
 using FxTemplateAzureSQL.Interfaces;
 using FxTemplateAzureSQL.Interfaces.RepositoryPattern;
@@ -17,18 +16,17 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System.Net;
-using System.Runtime.InteropServices;
 using AuthorizationLevel = Microsoft.Azure.Functions.Worker.AuthorizationLevel;
 
 namespace FxTemplateAzureSQL
 {
     public class FxTemplate(IValidator<DemoInput> demoValidator, IHttpService httpService, ILogger<FxTemplate> logger, IUnitOfWork unitOfWork)
     {
-       
         private readonly IValidator<DemoInput> _demoValidator = demoValidator;
         private readonly IHttpService _httpService = httpService;
         private readonly ILogger<FxTemplate> _logger = logger;
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
+      
         //RECUERDE QUE
         //1. El nombre de su funcionalidad no puede superar 28 caracteres
         //2. El decorador de open api debe ser unico por cada funcion
@@ -43,8 +41,7 @@ namespace FxTemplateAzureSQL
         //3. En los PUT, PATCH y DELETE se utiliza el envió del parámetro por ruta.miFX/miRuta/${idRegistro}
 
         [Function("Function1")]
-        
-        
+
         [OpenApiOperation(operationId: "NombreFuncionalidad", tags: ["NombreFuncionalidad"], Description = "Descripcion del end ponit", Summary = "Descripcion del endpoint")]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         //[OpenApiParameter(name: "name", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **Name** parameter")]// Documentacion de parametros en path, query etc.
@@ -55,6 +52,7 @@ namespace FxTemplateAzureSQL
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.NoContent, contentType: "application/json", bodyType: typeof(ResponseResult), Description = "No Content")] //Utiice solo las respuestas que utilice en su end point
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(ResponseResult), Description = "Bad Request")] //Utiice solo las respuestas que utilice en su end point
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.InternalServerError, contentType: "application/json", bodyType: typeof(ResponseResult), Description = "Error en el servicio")] //Utiice solo las respuestas que utilice en su end point
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         public async Task<IActionResult> NombreFuncionalidad(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "V1.0/DEFINIR")] HttpRequest req)
         {
@@ -63,33 +61,34 @@ namespace FxTemplateAzureSQL
                 _logger.LogInformation("C# HTTP trigger function processed a request.");
                 var json = await req.ReadAsStringAsync();
 
-                if(json is not null)
+                if (json is not null)
                 {
                     DemoInput? request = JsonConvert.DeserializeObject<DemoInput>(json);
-                    var validationResult = _demoValidator.Validate(request);
-                    if (validationResult.IsValid)
-                    {                  
-                        
-                        ResponseApi data = await _httpService.GetDataAsync(request.Edad);
-                        await _unitOfWork.DemoRepository.InsertData(data, request.Email);
-                        return HttpResponseHelper.SuccessfullOperation(SupportedResponses.Registro_creado_exitosamente);
-                    }
-                    else
+
+                    if(request is not null)
                     {
-                        string allErrors = string.Join(Environment.NewLine, validationResult.Errors.Select(e => e.ErrorMessage));
-                        return HttpResponseHelper.BadRequest(null, allErrors);
+                        var validationResult = _demoValidator.Validate(request);
+                        if (validationResult.IsValid)
+                        {
+                            ResponseApi data = await _httpService.GetDataAsync(request.Edad);
+                            await _unitOfWork.DemoRepository.InsertData(data, request.Email);
+                            return HttpResponseHelper.SuccessfullOperation(SupportedResponses.Registro_creado_exitosamente);
+                        }
+                        else
+                        {
+                            string allErrors = string.Join(Environment.NewLine, validationResult.Errors.Select(e => e.ErrorMessage));
+                            return HttpResponseHelper.BadRequest(null, allErrors);
+                        }
                     }
+
+                    
                 }
 
                 return HttpResponseHelper.BadRequest(null, "No fue enviado el cuerpo de la peticion.");
-
-
-
-
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex,"Ocurrio un error");
+                _logger.LogError(ex, "Ocurrio un error");
                 return HttpResponseHelper.InternalServerError(ex.Message);
             }
         }

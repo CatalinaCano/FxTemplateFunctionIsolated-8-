@@ -5,7 +5,7 @@ namespace FxTemplateAzureSQL.Utils
 {
     public static class HttpResponseHelper
     {
-        public static ObjectResult SuccessfulResponse(object response, SupportedResponses? mensaje = null, string mensajePersonalizado = null)
+        public static ObjectResult SuccessfulResponse(object response, SupportedResponses? mensaje = null, string? mensajePersonalizado = null)
         {
             var responseOK = new ResponseResult()
             {
@@ -36,14 +36,14 @@ namespace FxTemplateAzureSQL.Utils
             return Response(responseSuccessfullOperation.Code, responseSuccessfullOperation);
         }
 
-        public static ObjectResult BadRequest(SupportedResponses? mensaje = null, string mensajePersonalizado = null)
+        public static ObjectResult BadRequest(SupportedResponses? mensaje = null, string? mensajePersonalizado = null)
         {
+            string mensajeFinal = mensajePersonalizado is null ? " " : mensajePersonalizado.ToString();
             var responseFailedOperation = new ResponseResult()
             {
-                Message = mensaje == null ? mensajePersonalizado : ObtenerMensaje(mensaje),
+                Message = mensaje is null ? mensajeFinal : ObtenerMensaje(mensaje),
                 Code = 400
             };
-
 
             return Response(responseFailedOperation.Code, responseFailedOperation);
         }
@@ -68,7 +68,7 @@ namespace FxTemplateAzureSQL.Utils
         }
 
         public static string ObtenerMensaje(SupportedResponses? mensaje)
-        {
+        {            
             return mensaje is null ? "Sin Mensaje" : mensaje.ToString().Replace('_', ' ');
         }
     }

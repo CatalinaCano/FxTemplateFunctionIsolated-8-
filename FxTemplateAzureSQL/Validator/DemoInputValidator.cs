@@ -18,7 +18,6 @@ namespace FxTemplateAzureSQL.Validator
             _configuration = configuration;
             _unitOfWork = unitOfWork;
 
-
             RuleFor(x => x.Nombre)
            .NotNull().NotEmpty().WithMessage("{PropertyName} inválido no puede ser nulo.");
 
@@ -34,7 +33,6 @@ namespace FxTemplateAzureSQL.Validator
            .Matches(_configuration["RegexExpression:email"]).WithMessage("{PropertyName}  Inválida.")
             .Must((usuario, CorreoElecronico) => VerificarExistencia("Correo", usuario))
             .WithMessage("La dirección de correo electrónico enviada ya se encuentra registrada.");
-
         }
 
         //Ejemplo de validacion hacia la Base de datos

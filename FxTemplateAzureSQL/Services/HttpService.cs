@@ -11,7 +11,7 @@ namespace FxTemplateAzureSQL.Services
         public readonly IConfiguration _configuration = configuration;
 
         public async Task<ResponseApi> GetDataAsync(int index)
-        {           
+        {
             var response = await _httpClient.GetAsync($"{_configuration["HttpClientSettings:BaseAddress"]}{index}");
             response.EnsureSuccessStatusCode();
             var jsonResponse = await response.Content.ReadAsStringAsync();

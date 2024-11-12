@@ -1,0 +1,1 @@
+﻿C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\obj\Debug\net8.0\WorkerExtensions\obj\Release\net6.0\WorkerExtensions.AssemblyInfo.cs

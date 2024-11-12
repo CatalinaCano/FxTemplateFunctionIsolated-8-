@@ -8,9 +8,9 @@ using System.Data;
 namespace FxTemplateAzureSQL.Repositories
 {
     //RECUERDE QUE PUEDE VALIDAR EL TIPO DE METODO A USAR DE DAPPER POR https://www.learndapper.com/selecting-single-rows
-    public class DemoRepository(IDbTransaction transaction, IMapper mapper) : RepositoryBase(transaction), IDemoRepository
+    public class DemoRepository(IDbTransaction? transaction, IMapper? mapper) : RepositoryBase(transaction), IDemoRepository
     {
-        private readonly IMapper _mapper = mapper;
+        private readonly IMapper? _mapper = mapper;
 
         public async Task InsertData(ResponseApi demo, string correo)
         {
@@ -25,7 +25,6 @@ namespace FxTemplateAzureSQL.Repositories
                                ,@Apellido
                                ,@Edad
                                ,@Correo)";
-
 
             var parameters = new DynamicParameters();
             parameters.Add("@Nombre", data.Nombre, DbType.String);

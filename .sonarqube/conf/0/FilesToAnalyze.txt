@@ -1,0 +1,39 @@
+﻿C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\DataContext\DapperContext.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\DataContext\UnitOfWork.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\FxTemplate.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Interfaces\IHttpService.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Interfaces\RepositoryPattern\IDemoRepository.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Interfaces\RepositoryPattern\IUnitOfWork.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Mappers\MappingProfileDemo.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Models\Input\DemoInput.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Models\Records\DemoRecord.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Models\ResponseAPI\ResponseApi.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Models\ResponseResult.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\OpenApi\DemoInputExample.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\OpenApi\ResponseResultExample.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Program.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Repositories\DemoRepository.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Repositories\RepositoryBase.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Services\HttpService.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Utils\HttpResponseHelper.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Utils\SecurityHelper.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Utils\SupportedResponses.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Utils\TimeHelper.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Validator\DemoInputValidator.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\obj\Debug\net8.0\FxTemplateAzureSQL.GlobalUsings.g.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\obj\Debug\net8.0\FxTemplateAzureSQL.AssemblyInfo.cs
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\host.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\local.settings.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\.gitignore
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\launchSettings.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\PublishProfiles\FxTemplateSQL - Zip Deploy.pubxml
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\serviceDependencies.FxTemplateSQL - Zip Deploy.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\serviceDependencies.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\serviceDependencies.local.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\ServiceDependencies\FxTemplateSQL - Zip Deploy\appInsights2.arm.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\ServiceDependencies\FxTemplateSQL - Zip Deploy\secrets1.arm.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\Properties\ServiceDependencies\FxTemplateSQL - Zip Deploy\storage1.arm.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\obj\Debug\net8.0\functions.metadata
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\obj\Debug\net8.0\worker.config.json
+C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\FxTemplateAzureSQL\obj\Debug\net8.0\extensions.json

@@ -17,7 +17,7 @@ namespace FxTemplateAzureSQL.OpenApi
                         Nombre = "User",
                         Apellido = "1",
                         Edad = 10,
-                        Email ="user@test.com"
+                        Email = "user@test.com"
                     },
                     namingStrategy
                 ));

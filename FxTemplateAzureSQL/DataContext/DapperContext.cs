@@ -1,13 +1,13 @@
-﻿using System.Data;
+﻿using Microsoft.Extensions.Configuration;
+using System.Data;
 using System.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
 
 namespace FxTemplateAzureSQL.DataContext
 {
     public class DapperContext
     {
         private readonly IConfiguration _config;
-        private readonly string secretName;
+        private readonly string? secretName;
 
         public DapperContext(IConfiguration configuration)
         {

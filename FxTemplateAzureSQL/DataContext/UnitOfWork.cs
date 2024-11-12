@@ -13,7 +13,7 @@ namespace FxTemplateAzureSQL.DataContext
         private IDbConnection? _connection;
         private IDbTransaction? _transaction;
 
-        private IDemoRepository _demoRepository;
+        private IDemoRepository? _demoRepository;
 
         private bool _disposed = false;
         public readonly DapperContext _context;
@@ -36,21 +36,22 @@ namespace FxTemplateAzureSQL.DataContext
             get { return _demoRepository ??= new DemoRepository(_transaction, _mapper); }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S2589:Boolean expressions should not be gratuitous", Justification = "<Pending>")]
         public void Commit()
         {
             try
             {
-                _transaction.Commit();
+                _transaction?.Commit();
             }
             catch
             {
-                _transaction.Rollback();
+                _transaction?.Rollback();
                 throw;
             }
             finally
-            {
-                _transaction.Dispose();
-                _transaction = _connection.BeginTransaction();
+            {                
+                _transaction?.Dispose();
+                _transaction = _connection?.BeginTransaction();
                 ResetRepositories();
             }
         }
