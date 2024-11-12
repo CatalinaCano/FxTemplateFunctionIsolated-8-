@@ -1,8 +1,7 @@
 ## <⚡> PLANTILLA PARA FUNCIONES HTTP
 
 
-
-![8.jpeg](C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\Resources\8.jpeg)
+![nuget1.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/8.jpeg?raw=true)
 
 # Antes de Empezar
 
@@ -10,7 +9,7 @@ las dentro de servicebus.
 
 La estructura del template contempla la utilización de las siguientes dependencias que se establecen como base transversal, esto no implica que en el futuro puedan adicionarse o reemplazarse por otros
 
-![nuget1.png](C:\Users\Gimena\Downloads\Dependecias.png)
+![nuget1.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Dependecias.png)
 
 Para poder generar la plantilla debera clonar este repositorio, ejecutando el siguiente comando: 
 
@@ -20,32 +19,32 @@ git clone https://EpadGroup@dev.azure.com/EpadGroup/Epad_Repositorios/_git/BackE
 
 1. Vaya a **Visual Studio 2022** y abra la solución descargada, verifique que todos los paquetes estén instalados correctamente ejecútela. Una vez identifique que corre de manera exitosa, proceda a generar el template, para ello, vaya a la opción **Proyecto -> Exportar Plantilla.**
 
-![Template1.png](C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\Resources\Template1.png)
+![Template1.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template1.png)
 
 2. Una vez allí se desplegará la siguiente ventana, deberá seleccionar Plantilla de Proyecto y cualquiera de los proyectos.
 
-![Template2.png](C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\Resources\Template2.png)
+![Template2.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template2.png)
 
 3. Asigne la siguiente configuración:
 
 #Plantilla 1
 
-| **Nombre de la Solución:**       | ![Azure-SQL-Database.png](C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\Resources\Azure-SQL-Database.png) FxTemplateAzureSQL\. |
+| **Nombre de la Solución:**       | ![Azure-SQL-Database.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Azure-SQL-Database.png) FxTemplateAzureSQL\. |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **Nombre de la plantilla:**      | EPAD-PlantillaSQL\.                                                                                                                      |
 | **Descripción de la plantilla:** | Plantilla que implementa los patrones repository y unit of work para conectarse a un motor relacional\.                                  |
 | **Icono:**                       | /Resources/img/Azure-SQL-Database.png                                                                                                    |
 
 RECUERDE QUE LAS OPCIONES **Importar la plantilla automáticamente en Visual Studio** y **Mostrar una ventana de explorador en la carpeta de archivos de salida** DEBEN ESTAR MARCADAS.
-![Template3.png](C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\Resources\Template3.png)
+![Template3.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template3.png)
 
 4. Una vez finalice automáticamente se abrirá una ventana del explorador donde se encuentra el template generado.
 
-![Template4.png](C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\Resources\Template4.png)
+![Template4.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template4.png)
 
 5. Verifique que al buscar la plantilla esta se encuentre disponible y cree un proyecto de prueba desde el nuevo template.
 
-![Template5.png](C:\Users\Gimena\Downloads\FxTemplateFunctionIsolated-8-\Resources\Template5.png)
+![Template5.png](https://github.com/CatalinaCano/FxTemplateFunctionIsolated-8-/blob/main/Resources/Template5.png)
 
 > **NOTA IMPORTANTE:** En el caso de que en el pasado haya generado una plantilla con el mismo nombre es importante que elimine los archivos .zip que se generan en las siguientes rutas y luego se proceda a generar nuevamente la plantilla
 
